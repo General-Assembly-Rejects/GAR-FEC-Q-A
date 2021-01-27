@@ -5,6 +5,7 @@
 import React, { useState } from 'react'; import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import Moment from 'react-moment';
+import axios from 'axios';
 
 const QuestionList = ({ questionList, answerQuestion }) => {
   const [isAnsweringQuestion, setIsAnsweringQuestion] = useState(false);
@@ -12,6 +13,11 @@ const QuestionList = ({ questionList, answerQuestion }) => {
   const [answerTitle, setAnswerTitle] = useState(null);
   const [answerBody, setAnswerBody] = useState(null);
   const [answerUserName, setAnswerUserName] = useState(null);
+
+  const updateHelpfulYes = (id) => {
+    console.log('hit updatehelpfulyes')
+    axios.put(`http://localhost:3003/api/questions/increment/${id}`);
+  };
 
   return (
     <div className="questionList">
@@ -62,6 +68,9 @@ const QuestionList = ({ questionList, answerQuestion }) => {
                         <p>
                           Helpful?
                           <button
+                            onClick={() => {
+                              updateHelpfulYes(question._id);
+                            }}
                             type="submit"
                             className="answerHelpfulYes"
                           >
@@ -94,7 +103,6 @@ const QuestionList = ({ questionList, answerQuestion }) => {
               <Modal isOpen={isAnsweringQuestion} onRequestClose={() => setIsAnsweringQuestion(false)}>
                 <p className="author">{currentQuestion.questionAuthor}</p>
                 <p className="title">{currentQuestion.questionTitle}</p>
-                <p className="createdAt"><Moment fromNow>{question.questionCreatedAt}</Moment></p>
                 <p className="questionBody">{currentQuestion.questionBody}</p>
                 <form
                   onSubmit={(event) => {
