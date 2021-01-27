@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 // eslint-disable-next-line import/no-named-as-default-member
 import QuestionList from './QuestionList';
 
-Modal.setAppElement('#app');
+Modal.setAppElement('#qa-mount');
 
 const App = () => {
   const [questionList, setQuestionList] = useState([]);
