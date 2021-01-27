@@ -67,9 +67,20 @@ const answerQuestion = (questionId, newAnswer, callback) => {
   });
 };
 
+const incrementHelpfulYes = (questionId, callback) => {
+  Qa.update({ _id: questionId }, { $inc: { 'answer.answerHelpfulYes': 1 } }, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports = {
   Qa,
   findAllQuestions,
   addNewQuestion,
   answerQuestion,
+  incrementHelpfulYes,
 };
