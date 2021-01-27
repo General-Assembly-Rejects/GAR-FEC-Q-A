@@ -15,8 +15,11 @@ const QuestionList = ({ questionList, answerQuestion }) => {
   const [answerUserName, setAnswerUserName] = useState(null);
 
   const updateHelpfulYes = (id) => {
-    console.log('hit updatehelpfulyes')
     axios.put(`http://localhost:3003/api/questions/increment/${id}`);
+  };
+
+  const updateHelpfulNo = (id) => {
+    axios.put(`http://localhost:3003/api/questions/decrement/${id}`);
   };
 
   return (
@@ -79,6 +82,9 @@ const QuestionList = ({ questionList, answerQuestion }) => {
                             {question.answer.answerHelpfulYes}
                           </button>
                           <button
+                            onClick={() => {
+                              updateHelpfulNo(question._id);
+                            }}
                             type="submit"
                             className="answerHelpfulNo"
                           >

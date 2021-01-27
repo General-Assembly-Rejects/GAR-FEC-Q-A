@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const { findAllQuestions, addNewQuestion, answerQuestion, incrementHelpfulYes } = require('../database/db/index.js');
+const { findAllQuestions, addNewQuestion, answerQuestion, incrementHelpfulYes, incrementHelpfulNo } = require('../database/db/index.js');
 
 const app = express.Router();
 app.use(cors());
@@ -74,6 +74,17 @@ app.put('/questions/:id', (req, res) => {
 app.put('/questions/increment/:id', (req, res) => {
   const { id } = req.params;
   incrementHelpfulYes(id, (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(results);
+    }
+  });
+});
+
+app.put('/questions/decrement/:id', (req, res) => {
+  const { id } = req.params;
+  incrementHelpfulNo(id, (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else {
