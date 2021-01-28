@@ -5,7 +5,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const { findAllQuestions, addNewQuestion, answerQuestion, incrementHelpfulYes, incrementHelpfulNo } = require('../database/db/index.js');
+const {
+  findAllQuestions, addNewQuestion, answerQuestion, incrementHelpfulYes, incrementHelpfulNo,
+} = require('../database/db/index.js');
 
 const app = express.Router();
 app.use(cors());
