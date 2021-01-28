@@ -39,8 +39,14 @@ const QuestionList = ({ questionList, answerQuestion }) => {
               </div>
 
             </p>
-            <p className="author">{question.questionAuthor}</p>
-            <p className="createdAt"><Moment fromNow>{question.questionCreatedAt}</Moment></p>
+            <div
+              className="headUnit"
+            >
+              <div className="grid-container">
+                <p className="author">{question.questionAuthor}</p>
+                <p className="createdAt"><Moment fromNow>{question.questionCreatedAt}</Moment></p>
+              </div>
+            </div>
             <p className="title">{question.questionTitle}</p>
             <p className="questionBody">{question.questionBody}</p>
             <div>

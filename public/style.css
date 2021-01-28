@@ -18,6 +18,7 @@ body {
 
 .questionAuthor {
   font-family: 'Roboto Mono', monospace;
+  display:inline-block;margin-right:5px;
 }
 
 .askQuestion {
@@ -54,14 +55,22 @@ h1 {
 
 .author {
   font-weight: bold;
+  font-size: medium;
+  width: 50px;
+}
+
+.author:first-child {
+  margin-right: 20px;
 }
 
 .title {
   font-weight: bolder;
+  font-size: x-large;
 }
 
 .answerAuthor {
   font-weight: bold;
+  width: 80px;
 }
 
 .answer {
@@ -78,4 +87,14 @@ button {
 .answerQuestion {
   margin: 15px;
   padding: 5px;
+}
+
+.createdAt {
+  position: relative;
+}
+
+.grid-container {
+  display: table-row;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
 }
