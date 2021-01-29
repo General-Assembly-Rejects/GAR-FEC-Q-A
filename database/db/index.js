@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const dbUrl = (process.env.CONNECTIONSTRING);
+const dbUrl = (process.env.CONNECTIONSTRING || 'mongodb://localhost:27017/REI');
 
 // ? process.env.CONNECTIONSTRING : 'mongodb://localhost:27017/REI';
 
