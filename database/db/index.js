@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose');
 
-const dbUrl = process.env.CONNECTIONSTRING ? process.env.CONNECTIONSTRING : 'mongodb://localhost:27017/REI';
+const dbUrl = (process.env.CONNECTIONSTRING);
+
+// ? process.env.CONNECTIONSTRING : 'mongodb://localhost:27017/REI';
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true, useUnifiedTopology: true,

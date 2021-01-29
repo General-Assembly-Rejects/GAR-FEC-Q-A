@@ -14,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/questions', (req, res) => {
+  console.log('in the get API');
   findAllQuestions((err, results) => {
     if (err) {
       res.status(500).send(err);
