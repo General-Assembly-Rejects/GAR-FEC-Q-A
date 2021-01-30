@@ -2,25 +2,38 @@ version: '3.8'
 
 services:
  notes:
-  build:
-   context: .
+  image: glaserevan/private_repo:appimage
   ports:
    - 3003:3003
    - 9229:9229
   environment:
    - SERVER_PORT=8080
    - CONNECTIONSTRING=mongodb://mongo:27017/REI
-  volumes:
-   - ./:/code
+  # volumes:
+  #  - ./:/code
+  links:
+    - mongo
+  depends_on:
+    - mongo
   command: npm run debug
+  container_name: notes
 
  mongo:
-  image: mongo:4.2.8
+  image: mongo
   ports:
    - 27017:27017
-  volumes:
-   - mongodb:/data/db
-   - mongodb_config:/data/configdb
-volumes:
- mongodb:
- mongodb_config:
+  container_name: mongo
+  # volumes:
+  #  - mongodb:/data/db
+  #  - mongodb_config:/data/configdb
+
+  # mongo_seed:
+  #   container_name: mongo_seed
+  #   build: .
+  #   networks:
+  #     - dev
+  #   depends_on:
+  #     - mongo
+# volumes:
+#  mongodb:
+#  mongodb_config:

@@ -16,7 +16,7 @@ const App = () => {
   const [lastQuestion, setLastQuestion] = useState(null);
 
   const getQuestionList = () => {
-    axios.get('http://localhost:3003/api/questions')
+    axios.get('http://18.189.182.249:3003/api/questions')
       .then(({ data }) => {
         const questions = [];
         for (let i = 0; i < 5; i += 1) {
@@ -31,14 +31,14 @@ const App = () => {
   }, []);
 
   const addQuestion = (question) => {
-    axios.post('http://localhost:3003/api/questions', question)
+    axios.post('http://18.189.182.249:3003/api/questions', question)
       .then(getQuestionList());
   };
   const processPost = (newQuestion) => {
     addQuestion(newQuestion);
   };
   const answerQuestion = (_id, answer) => {
-    axios.put(`http://localhost:3003/api/questions/${_id}`, answer)
+    axios.put(`http://18.189.182.249:3003/api/questions/${_id}`, answer)
       .then(getQuestionList());
   };
 
@@ -110,7 +110,7 @@ const App = () => {
       <button
         type="submit"
         className="showMore"
-        onClick={(event) => axios.get('http://localhost:3003/api/questions')
+        onClick={(event) => axios.get('http://18.189.182.249:3003/api/questions')
           .then(({ data }) => {
             event.preventDefault();
             const newQuestions = [];
