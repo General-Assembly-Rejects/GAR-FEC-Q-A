@@ -15,11 +15,11 @@ const QuestionList = ({ questionList, answerQuestion }) => {
   const [answerUserName, setAnswerUserName] = useState(null);
 
   const updateHelpfulYes = (id) => {
-    axios.put(`http://18.189.182.249:3003/api/questions${id}`);
+    axios.put(`http://18.216.184.226/:3003/api/questions/${id}`);
   };
 
   const updateHelpfulNo = (id) => {
-    axios.put(`http://18.189.182.249:3003/api/questions${id}`);
+    axios.put(`http://18.216.184.226/:3003/api/questions/${id}`);
   };
 
   return (

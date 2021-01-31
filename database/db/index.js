@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 const mongoose = require('mongoose');
-const
 
 const dbUrl = (process.env.CONNECTIONSTRING || 'mongodb://localhost:27017/REI');
 

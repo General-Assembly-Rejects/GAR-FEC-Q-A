@@ -3,3 +3,5 @@ node_modules/
 /public/bundle.js
 gar/key
 /key
+/new_key
+/key_docker
